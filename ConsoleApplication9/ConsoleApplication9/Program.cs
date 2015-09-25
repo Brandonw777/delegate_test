@@ -11,10 +11,7 @@ namespace ConsoleApplication9
         static void Main(string[] args)
         {
             
-            var list = new List<dynamic>
-          {
-               new Func<int> (test1)
-          };
+            var list = new List<dynamic>{ new Func<int> (test1)}; //init functionlist and add a function
 
 
             Console.WriteLine("Words...");
