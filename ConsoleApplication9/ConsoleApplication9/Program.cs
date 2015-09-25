@@ -16,17 +16,17 @@ namespace ConsoleApplication9
 
             Console.WriteLine("Words...");
             Console.ReadKey();
-            list.Add(new Func<string, string>(test2));
-            dynamic result = list[0](); // like X(1, 2)
+
+            list.Add(new Func<string, string>(test2));// appending new function  Func<parameter type, return type>()
+            dynamic result = list[0](); 
             
             Console.WriteLine(result);
             Console.ReadKey();
             Console.WriteLine(list[1]("b"));
             Console.ReadKey();
+            Test();
 
         }
-
-
         static int test1()
         {
             Console.WriteLine("HI!!!");
@@ -36,7 +36,24 @@ namespace ConsoleApplication9
         {
             return x;
         }
-        
+
+        static void Test()
+        {
+            // Using lambda expression that captures parameters
+            Action forLater = () => foo(3);
+            // Using method group directly
+            Action<object> forLaterToo = foo;
+            // later
+            forLater();
+            forLaterToo(4);
+            Console.ReadKey();
+        }
+        static void foo(object bar)
+        {
+            Console.WriteLine(bar);
+        }
+
+
 
     }
 }
